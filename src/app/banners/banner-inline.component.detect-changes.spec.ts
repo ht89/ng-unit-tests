@@ -1,25 +1,25 @@
 import {ComponentFixture, TestBed, ComponentFixtureAutoDetect} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
-import {BannerComponent} from './banner-inline.component';
+import {BannerInlineComponent} from './banner-inline.component';
 
 
 describe('Banner Component (inline template) with automatic change detection', () => {
-    let comp: BannerComponent;
-    let fixture: ComponentFixture<BannerComponent>;
+    let comp: BannerInlineComponent;
+    let fixture: ComponentFixture<BannerInlineComponent>;
     let de: DebugElement;
     let el: HTMLElement;
 
     // run before each 'it'
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [BannerComponent],
+            declarations: [BannerInlineComponent],
             providers: [
                 { provide: ComponentFixtureAutoDetect, useValue: true }
             ]
         });
 
-        fixture = TestBed.createComponent(BannerComponent);
+        fixture = TestBed.createComponent(BannerInlineComponent);
 
         comp = fixture.componentInstance;
 
