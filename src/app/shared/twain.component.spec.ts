@@ -32,8 +32,8 @@ describe('Twain component', () => {
         spy = spyOn(twainService, 'getQuote')
             .and.returnValue(Promise.resolve(testQuote));
 
-        de = fixture.debugElement.query(By.css('.twain'));
-        el = de.nativeElement;
+        de = fixture.debugElement;
+        el = de.query(By.css('.twain')).nativeElement;
     });
 
     it('should not show quote before OnInit', () => {
@@ -49,7 +49,7 @@ describe('Twain component', () => {
 
     // async() used to get data returned by async activities
     it('should show quote after getQuote promise (async)', async () => {
-        fixture.detectChanges();
+        // fixture.detectChanges();
 
         fixture.whenStable().then(() => { // wait for the async getQuote
             fixture.detectChanges(); // update view with quote
@@ -58,13 +58,13 @@ describe('Twain component', () => {
     });
 
     // fakeAsync is the same but provides more linear code
-    // Limitation: fakeAsync cannot handle XHR calls
-    it('should show quote after getQuote promise (fake async)', fakeAsync(() => {
-        fixture.detectChanges();
-        tick(); // wait for async getQuote
-        fixture.detectChanges();
-        expect(el.textContent).toBe(testQuote);
-    }));
+    // Limitation: fakeAsync cannot handle XHR calls e.g. API requests
+    // it('should show quote after getQuote promise (fake async)', fakeAsync(() => {
+    //     fixture.detectChanges();
+    //     tick(); // wait for async getQuote
+    //     fixture.detectChanges();
+    //     expect(el.textContent).toBe(testQuote);
+    // }));
 
     // this is useful for handling activities that contain timer like setTimeout() since async & fakeAsync cannot handle such
     // it('should show quote after getQuote promise (done)', (done: any) => {

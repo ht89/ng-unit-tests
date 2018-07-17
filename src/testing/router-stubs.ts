@@ -10,6 +10,7 @@ export class ActivatedRouteStub {
 
     // Test parameters
     private _testParamMap: ParamMap;
+    
     get testParamMap() { 
         return this._testParamMap; 
     }

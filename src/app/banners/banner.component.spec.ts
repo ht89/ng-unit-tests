@@ -22,23 +22,24 @@ describe('Banner Component', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(BannerComponent);
         comp = fixture.componentInstance;
-        de = fixture.debugElement.query(By.css('h1'));
-        el = de.nativeElement;
+        de = fixture.debugElement;
+        el = de.query(By.css('h1')).nativeElement;
     });
 
     it('should create Banner Component', () => {
+        // a good test to check if the component is set up correctly.
         expect(comp).toBeDefined();
     });
 
-    it('should display original title', () => {
-        fixture.detectChanges();
-        expect(el.textContent).toContain(comp.title);
-    });
+    // it('should display original title', () => {
+    //     fixture.detectChanges();
+    //     expect(el.textContent).toContain(comp.title);
+    // });
 
-    it('should still keep original title', () => {
-        fixture.detectChanges();
-        const oldTitle = comp.title;
-        comp.title = 'New Title';
-        expect(el.textContent).toContain(oldTitle);
-    });
+    // it('should still keep original title', () => {
+    //     fixture.detectChanges();
+    //     const oldTitle = comp.title;
+    //     comp.title = 'New Title';
+    //     expect(el.textContent).toContain(oldTitle);
+    // });
 });

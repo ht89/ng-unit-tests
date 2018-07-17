@@ -21,7 +21,7 @@ export class HeroDetailComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe(p => {
             let hero = this.heroService.getHero(+(p.has('id') && p.get('id')));
-            if (hero !== null) {
+            if (hero) {
                 this.hero = hero;
             } else {
                 this.gotoList();

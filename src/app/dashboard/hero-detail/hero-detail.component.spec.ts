@@ -128,7 +128,7 @@ describe('Hero Detail Component: navigating to non-existent hero', () => {
 
         page = new Page();
 
-        // 1st change detection triggers ngOnInit which gets a hero
+         // 1st change detection triggers ngOnInit which gets a hero
         fixture.detectChanges();
         return fixture.whenStable().then(() => {
             // 2nd change detection displays the async-fetched hero

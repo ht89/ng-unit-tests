@@ -33,11 +33,12 @@ describe('Dashboard Component', () => {
         });
     }));
 
-    // inject() is similar to using Testbed.get(Router). NOTE: it only returns services at the root level (e.g. app.module), not from the component providers
+    // inject() is similar to using Testbed.get(Router). NOTE: it only returns services at the root level (TestBed), not from the component providers (in overrideComponent())
     it('should tell ROUTER to navigate when hero is clicked', inject([Router], (router: Router) => {
         const spy = spyOn(router, 'navigateByUrl');
 
         const heroEl = fixture.debugElement.query(By.css('.hero'));
+        // explain click event
         click(heroEl);
 
         // args passed to router.navigateByUrl()
